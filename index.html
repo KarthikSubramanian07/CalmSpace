@@ -1,0 +1,156 @@
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+      <script src="http://code.jquery.com/jquery-1.10.2.js"></script>  
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>  
+      <script type="text/javascript">
+         $(document).ready(function () {
+         $( ".widget input[type=submit], .widget a, .widget button" ).button();
+         
+             console.log('test');
+         });
+
+				  
+      </script>
+<Title>
+CalmSpace: Sensory Room
+</Title>
+   </head>
+   <body>
+      <div class="container">
+         <div class="content-wrapper">
+            <div class="content">
+               <div class="header">
+                  <h1>CalmSpace</h1>
+               </div>
+               <div class="widget">
+                  <form action="/save" method="post">
+                     <br>
+                     <table id="myTable" border="1" class="ui-widget">
+                        <thead class="ui-widget-header">
+                           <tr>
+                              <th>Select</th>
+                              <th>Device Name</th>
+                           </tr>
+                        </thead>
+                        <tbody class="ui-widget-content">
+			{% for line in data %}
+			<tr>
+							<td><input type="checkbox" {% if line[1] == '1' %}checked{% else %} {% endif %} id="{{ line[0] }}" name="chkdevice" value="{{ line[0] }}"></td>	
+							<td>{{ line[0] }}</td>
+						</tr>
+						{% endfor %}
+
+						
+                     </table>
+<BR/>
+  <label for="phone">Email:</label>
+  <input type="email" id="email" name="email" placeholder="email@email.com" value="{{ mail }}"><br><br>
+                     <button class="ui-button ui-widget ui-corner-all" id="save" type="submit">Save</button>
+                     <button onclick="location.href = 'discover';" id="discover" class="ui-button ui-widget ui-corner-all" name="discover" type="button">Discover Devices</button>
+                     <button onclick="location.href = 'clear';" id="clear" class="ui-button ui-widget ui-corner-all" name="clear"  type="button">Clear Devices</button>
+                  </form>
+               </div>
+            </div>
+            <!-- .content -->
+         </div>
+         <!-- .content-wrapper -->
+      </div>
+   </body>
+   <style>
+      * {
+      box-sizing: border-box;
+      }
+      body {
+      margin: 0;
+      font-family: Garamond, serif;
+      }
+      /* Style the header */
+      .header {
+      font-family: Garamond, serif;
+      font-size: 45px;
+      font-weight: 900;
+      margin: 0 0 0 0;
+      line-height: 5px;
+      background-color: ghostwhite;
+      padding: 1px;
+      text-align: center;
+      }
+      /* Style the top navigation bar */
+      .topnav {
+      overflow: hidden;
+      background-color: #333;
+      }
+      /* Style the topnav links */
+      .topnav a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      }
+      /* Change color on hover */
+      .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+      }
+      .content-wrapper {
+      max-width: 960px;
+      margin-right: auto;
+      margin-left: auto;
+      height: auto;
+      background-color: slategrey;
+      }
+      .content > * {
+      margin-right: auto;
+      margin-left: auto;
+      font-size: 18px;
+      text-align: center;
+      }
+      .content > p {
+      max-width: 600px;
+      }
+      .content figure {
+      margin-top: 2em;
+      margin-bottom: 2em;
+      }
+      .content figure img {
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+      }
+      .content figcaption {
+      margin-top: 1em;
+      font-size: 14px;
+      text-align: center;
+      }
+      .content a {
+      color: #e74c3c;
+      }
+      .content a:hover,
+      .content a:active,
+      .content a:focus {
+      color: currentColor;
+      }
+.widget {
+padding: 10px;
+}
+body {
+background: ghostwhite;
+}
+
+      table {
+      font-family: Garamond, serif !important;
+      margin: auto;
+      }
+      th {
+      padding: 10px;
+      }
+      td {
+      padding: 10px
+      }
+   </style>
+</html>
